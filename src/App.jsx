@@ -119,6 +119,10 @@ export default function App() {
         background: "linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%)",
         fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
         padding: "2rem 0",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <div
@@ -129,28 +133,48 @@ export default function App() {
           boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)",
           padding: "2.5rem 2rem",
           marginTop: "3rem",
+          width: "90vw",
+          maxWidth: "480px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
-        <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+        <div style={{ textAlign: "center", marginBottom: "1.5rem", width: "100%" }}>
           <img
             src={logo}
             alt="Logo"
-            style={{ height: "64px", margin: "0 auto", display: "block" }}
+            style={{
+              height: "clamp(96px, 18vw, 160px)",
+              maxWidth: "100%",
+              margin: "0 auto",
+              display: "block",
+            }}
           />
         </div>
         <h1
           className="text-3xl font-bold text-center"
           style={{
-            fontSize: "2.3rem",
+            fontSize: "clamp(2rem, 5vw, 2.7rem)",
             fontWeight: 700,
             color: "#3730a3",
             marginBottom: "2rem",
             letterSpacing: "0.01em",
+            textAlign: "center",
           }}
         >
           Tick Calculator
         </h1>
-        <div className="space-y-2" style={{ marginBottom: "1.5rem" }}>
+        <div
+          className="space-y-2"
+          style={{
+            marginBottom: "1.5rem",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           {allUpgrades.map((upgrade) => (
             <div
               key={upgrade.id}
@@ -168,6 +192,11 @@ export default function App() {
                 boxShadow: selected.includes(upgrade.id)
                   ? "0 2px 8px rgba(99, 102, 241, 0.10)"
                   : "none",
+                width: "100%",
+                maxWidth: "340px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
               <input
@@ -178,8 +207,8 @@ export default function App() {
                 disabled={!selected.includes(upgrade.id) && selected.length >= 3}
                 style={{
                   accentColor: "#6366f1",
-                  width: "1.1em",
-                  height: "1.1em",
+                  width: "1.3em",
+                  height: "1.3em",
                   marginRight: "0.7em",
                   cursor: "pointer",
                 }}
@@ -192,6 +221,7 @@ export default function App() {
                       ? "not-allowed"
                       : "pointer",
                   userSelect: "none",
+                  fontSize: "clamp(1rem, 2.5vw, 1.2rem)",
                 }}
               >
                 {upgrade.label}
@@ -200,7 +230,17 @@ export default function App() {
           ))}
         </div>
 
-        <div className="flex gap-4 justify-center" style={{ marginBottom: "1.5rem" }}>
+        <div
+          className="flex gap-4 justify-center"
+          style={{
+            marginBottom: "1.5rem",
+            width: "100%",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            gap: "1rem",
+          }}
+        >
           <button
             onClick={() => calculateTicks()}
             className="px-4 py-2 bg-blue-600 text-white rounded"
@@ -210,11 +250,14 @@ export default function App() {
               border: "none",
               borderRadius: "0.75rem",
               padding: "0.75rem 2rem",
-              fontSize: "1.1rem",
+              fontSize: "clamp(1.05rem, 2.5vw, 1.2rem)",
               fontWeight: 600,
               cursor: "pointer",
               boxShadow: "0 2px 8px rgba(99, 102, 241, 0.15)",
               transition: "background 0.2s",
+              width: "min(48vw, 180px)",
+              minWidth: "120px",
+              textAlign: "center",
             }}
           >
             Calculate
@@ -228,11 +271,14 @@ export default function App() {
               border: "none",
               borderRadius: "0.75rem",
               padding: "0.75rem 2rem",
-              fontSize: "1.1rem",
+              fontSize: "clamp(1.05rem, 2.5vw, 1.2rem)",
               fontWeight: 600,
               cursor: "pointer",
               boxShadow: "0 2px 8px rgba(34, 197, 94, 0.12)",
               transition: "background 0.2s",
+              width: "min(48vw, 180px)",
+              minWidth: "120px",
+              textAlign: "center",
             }}
           >
             Best Combo
@@ -244,9 +290,10 @@ export default function App() {
             className="text-center text-xl"
             style={{
               color: "#16a34a",
-              fontSize: "1.5rem",
+              fontSize: "clamp(1.2rem, 3vw, 1.7rem)",
               fontWeight: 600,
               marginBottom: "0.5rem",
+              textAlign: "center",
             }}
           >
             ✅ Final Tick: <strong>{result}</strong>
@@ -259,8 +306,9 @@ export default function App() {
             style={{
               color: "#dc2626",
               fontWeight: 500,
-              fontSize: "1.1rem",
+              fontSize: "clamp(1rem, 2.5vw, 1.2rem)",
               marginBottom: "0.5rem",
+              textAlign: "center",
             }}
           >
             ❌ Tick too low. Try different upgrades.
@@ -272,8 +320,9 @@ export default function App() {
             className="text-center text-sm text-gray-500"
             style={{
               color: "#64748b",
-              fontSize: "1rem",
+              fontSize: "clamp(0.95rem, 2vw, 1.1rem)",
               marginTop: "1rem",
+              textAlign: "center",
             }}
           >
             💡 Best Possible Tick: {bestTick}
