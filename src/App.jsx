@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import logo from "/638742658199097356.png";
+
 const BASE_TICK = 1200;
 const MIN_TICK = 1;
 
@@ -129,6 +131,13 @@ export default function App() {
           marginTop: "3rem",
         }}
       >
+        <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+          <img
+            src={logo}
+            alt="Logo"
+            style={{ height: "64px", margin: "0 auto", display: "block" }}
+          />
+        </div>
         <h1
           className="text-3xl font-bold text-center"
           style={{
