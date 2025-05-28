@@ -18,12 +18,12 @@ const fixedUpgrades = {
 };
 
 const allUpgrades = [
-  { id: "P1", label: "Percentage Tier 1 (-20%)" },
-  { id: "P2", label: "Percentage Tier 2 (-40%)" },
-  { id: "P3", label: "Percentage Tier 3 (-60%)" },
-  { id: "F1", label: "Fixed Tier 1 (-200 ticks)" },
-  { id: "F2", label: "Fixed Tier 2 (-400 ticks)" },
-  { id: "F3", label: "Fixed Tier 3 (-600 ticks)" },
+  { id: "F1", label: "Fixed Speed T1 (-200t)" },
+  { id: "F2", label: "Fixed Speed T2 (-400t)" },
+  { id: "F3", label: "Fixed Speed T3 (-600t)" },
+  { id: "P1", label: "Percentage Speed T1 (-20%)" },
+  { id: "P2", label: "Percentage Speed T2 (-40%)" },
+  { id: "P3", label: "Percentage Speed T3 (-60%)" },
 ];
 
 function getAllCombos(arr, maxLength) {
@@ -115,14 +115,14 @@ export default function App() {
   return (
     <div
       style={{
-        minHeight: "100vh",
-        background: "linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%)",
+        minHeight: "0vh",
+        background: "linear-gradient(135deg,rgb(4, 124, 244) 0%,rgb(1, 16, 67) 100%)",
         fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
-        padding: "2rem 0",
+        padding: "0rem 0",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
+        paddingTop: "0.0rem",
       }}
     >
       <div
@@ -130,17 +130,17 @@ export default function App() {
         style={{
           background: "#fff",
           borderRadius: "1.5rem",
-          boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.15)",
-          padding: "2.5rem 2rem",
-          marginTop: "3rem",
+          boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.15)",
+          padding: "0.032rem 1rem",
+          marginTop: "0",
           width: "90vw",
-          maxWidth: "480px",
+          maxWidth: "400px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
       >
-        <div style={{ textAlign: "center", marginBottom: "1.5rem", width: "100%" }}>
+        <div style={{ textAlign: "center", marginBottom: "0.0rem", width: "100%" }}>
           <img
             src={logo}
             alt="Logo"
@@ -158,7 +158,7 @@ export default function App() {
             fontSize: "clamp(2rem, 5vw, 2.7rem)",
             fontWeight: 700,
             color: "#3730a3",
-            marginBottom: "2rem",
+            marginBottom: "0rem",
             letterSpacing: "0.01em",
             textAlign: "center",
           }}
@@ -168,7 +168,7 @@ export default function App() {
         <div
           className="space-y-2"
           style={{
-            marginBottom: "1.5rem",
+            marginBottom: "0.0rem",
             width: "100%",
             display: "flex",
             flexDirection: "column",
@@ -181,7 +181,7 @@ export default function App() {
               className="flex items-center space-x-2"
               style={{
                 background: selected.includes(upgrade.id)
-                  ? "linear-gradient(90deg, #6366f1 0%, #818cf8 100%)"
+                  ? "linear-gradient(90deg,rgb(93, 3, 3) 0%,rgb(196, 37, 25) 100%)"
                   : "#f1f5f9",
                 borderRadius: "0.75rem",
                 padding: "0.5rem 1rem",
@@ -245,7 +245,7 @@ export default function App() {
             onClick={() => calculateTicks()}
             className="px-4 py-2 bg-blue-600 text-white rounded"
             style={{
-              background: "linear-gradient(90deg, #6366f1 0%, #818cf8 100%)",
+              background: "linear-gradient(4deg,rgb(110, 1, 1) 0%,rgb(243, 7, 7) 100%)",
               color: "#fff",
               border: "none",
               borderRadius: "0.75rem",
@@ -266,7 +266,7 @@ export default function App() {
             onClick={getBestCombo}
             className="px-4 py-2 bg-green-600 text-white rounded"
             style={{
-              background: "linear-gradient(90deg, #22c55e 0%, #4ade80 100%)",
+              background: "linear-gradient(90deg,rgb(24, 238, 5) 0%,rgb(20, 182, 5) 100%)",
               color: "#fff",
               border: "none",
               borderRadius: "0.75rem",
